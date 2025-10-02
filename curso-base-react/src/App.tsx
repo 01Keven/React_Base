@@ -19,10 +19,23 @@ import { useState } from "react";
 export function App() {
 
   const [count, setCount] = useState(0);
+  const [hide, setHide] = useState(false);
 
   return (
     <>
-      <button onClick={() => setCount(count + 1)}>Click {count}</button>
+
+      {hide && <p>TEST 1</p>}
+      {!hide && <p>TEST 2</p>}
+
+      {
+        hide
+        ? <p>TEST 1</p>
+        : <p>TEST 2</p>
+      }
+
+      <button onClick={() => {setCount(count + 1)}}> {count} </button>
+
+      <button onClick={() => {setHide(!hide)}}> Toggle</button>
     </>
   )
 }
